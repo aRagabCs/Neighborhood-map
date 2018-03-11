@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Udacity neighbourhood map</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Udacity neighbourhood map">
+    <meta name="author" content="Ahmed Ragab">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--stylesheet-->
+    <link href="css/style.css" rel="stylesheet" >
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+</head>
+<body>
+    <aside id="listing" class="col-sm-3 feat-places">
+        <h2 class="section-title">Featured Locations</h2>
+        <input class="filter-input" type="text" placeholder="Filter Location"  data-bind="textInput: filter, valueUpdate:'afterKeyDown'">
+        <ul data-bind="foreach: filterLocations" class="locations-list">
+            <li data-bind="text: title, click: $root.clickHandler">
+            </li>
+        </ul>
+        <h3>Nytimes articles</h3>
+        <div id="nytimes" data-bind="foreach: articlesNYT">
+            
+            <a target="_blank" href="" data-bind="attr:{href: web_url}">
+                <h5 data-bind="text: headline.main"></h5>
+            </a>
+            
+
+
+            </div>
+    </aside>
+    <main id="map" class="col-sm-9"></main>
+
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--knockout-->
+    <script src="script/knockout-3.4.2.js"></script>
+    <!--main script-->
+    <script src="script/app.js"></script>
+    <script onerror="mapError()" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCLtVQu3dN6YZFL7VU_EuEErMvTE-ty5M&callback=initMap" async>
+    </script>
+</body>
+</html>
